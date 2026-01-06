@@ -95,7 +95,7 @@ function StopManage() {
   // Initial Fetch
   useEffect(() => {
     const fetchStops = async () => {
-      const url = "http://localhost:3000/get-stops";
+      const url = `${import.meta.env.VITE_API_URL}/get-stops`;
       try {
         const response = await axios.get(url);
         setStops(response.data.payload || []);
@@ -109,7 +109,7 @@ function StopManage() {
   const removeStop = async(id) => {
     setStops(prev => prev.filter(stop => stop.id !== id));
     try {
-      await axios.delete(`http://localhost:3000/del-stop/${id}`);
+      await axios.delete(`${import.meta.env.VITE_API_URL}/del-stop/${id}`);
     } catch (err) {
       console.error(err);
     }
@@ -130,7 +130,7 @@ function StopManage() {
         lng: startCoords.lng
       };
       
-      await axios.post("http://localhost:3000/set-src", payload);
+      await axios.post(`${import.meta.env.VITE_API_URL}/set-src`, payload);
       setIsEditingSource(false);
     } catch (err) {
       console.error(err);
@@ -166,7 +166,7 @@ function StopManage() {
     };
 
     try {
-      await axios.post("http://localhost:3000/add-stop", newStop);
+      await axios.post(`${import.meta.env.VITE_API_URL}/add-stop`, newStop);
       setStops(prev => [...prev, newStop]);
     
       setStopPoint("");
@@ -187,7 +187,7 @@ function StopManage() {
       alert("Enter at least one stop");
       return;
     }
-    const url = "http://localhost:3000/get-route";
+    const url = `${import.meta.env.VITE_API_URL}/get-route`;
     try {
       const response = await axios.get(url, {
         headers: {
@@ -206,7 +206,7 @@ function StopManage() {
             navigate("/auth?mode=login");
             return;
           }
-          const refreshRes = await axios.post("http://localhost:3000/user-auth/token", { token: refreshToken });
+          const refreshRes = await axios.post(`${import.meta.env.VITE_API_URL}/user-auth/token`, { token: refreshToken });
           sessionStorage.setItem("accessToken", refreshRes.data.accessToken);
 
           const retryRes = await axios.get(url, {
@@ -229,7 +229,7 @@ function StopManage() {
   const handleLogOut = async () => {
     const refreshToken = localStorage.getItem("refreshToken");
     try {
-      await axios.delete("http://localhost:3000/user-auth/logout", {
+      await axios.delete(`${import.meta.env.VITE_API_URL}/user-auth/logout`, {
         data: { token: refreshToken },  
       });
       navigate('/');
