@@ -17,7 +17,7 @@ function Login() {
 
     async function handleLogin(e) {
         const user = { username: e.username, password: e.password };
-        const url = "http://localhost:3000/user-auth/login-user/";
+        const url = `${import.meta.env.VITE_API_URL}/user-auth/login-user/`;
         try {
             const response = await axios.post(url, user, {
                 headers: { "Content-Type": "application/json" },
