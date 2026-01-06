@@ -34,7 +34,7 @@ function RouteMap() {
     useEffect(() => {
         const fetchRoute = async () => {
             try {
-                const res = await axios.get('http://localhost:3000/get-route', {
+                const res = await axios.get(`${import.meta.env.VITE_API_URL}/get-route`, {
                     headers: {
                         Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
                     },
@@ -112,7 +112,7 @@ function RouteMap() {
     const handleLogOut = async () => {
         const refreshToken = localStorage.getItem("refreshToken");
         try {
-            await axios.delete("http://localhost:3000/user-auth/logout", {
+            await axios.delete(`${import.meta.env.VITE_API_URL}/user-auth/logout`, {
                 data: { token: refreshToken },  
             });
             navigate('/');
