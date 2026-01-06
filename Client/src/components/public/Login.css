@@ -1,0 +1,90 @@
+.container-login {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url(/login.webp);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+}
+
+/* LOGO */
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 25px 50px;
+    color: white;
+}
+
+/* CARD */
+.box {
+    width: 520px;    
+    min-height: 620px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.55); 
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+
+/* TABS */
+.head {
+    display: flex;
+}
+
+.tab {
+    flex: 1;
+    padding: 20px;
+    font-size: 20px;
+    border: none;
+    background: #f3f3f3;
+    cursor: pointer;
+}
+
+.tab.active {
+    background: #9d62fc ;
+    color: white;
+    font-weight: bold;
+    border-bottom: 3px solid #000;
+}
+
+/* FORM */
+.form {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form input,
+.form select {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+/* BUTTONS */
+.submit-btn {
+    margin-top: 10px;
+    padding: 12px;
+    background: #9d62fc ;
+    color: white;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+}
+
+.google-btn {
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+}
+
+.divider {
+    text-align: center;
+    color: #999;
+}

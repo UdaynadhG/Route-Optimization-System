@@ -1,0 +1,70 @@
+### ADD STOP
+POST http://localhost:3000/add-stop
+Content-Type: application/json
+
+{
+    "id": "4",
+    "name": "Asrao", 
+    "priority": "EXTREME" 
+}
+
+
+### GET SOURCE
+POST http://localhost:3000/set-src
+Content-Type: application/json
+
+{
+    "SRCname": "Hyderabad"
+}
+
+### Remove Stop by id
+DELETE http://localhost:3000/del-stop/4
+
+### RESET 
+POST http://localhost:3000/reset
+
+### Create User
+POST http://localhost:3000/user-auth/create-user/
+Content-Type: application/json
+
+{
+    "username" : "uuuda",
+    "name" : "uday",
+    "email" : "uday@gmail.com",
+    "password" : "123"
+}
+
+### Login User
+POST http://localhost:3000/user-auth/login-user/
+Content-Type: application/json
+
+{
+    "username" : "udynamo",
+    "password" : "123"
+}
+
+### Get Route
+GET http://localhost:3000/get-route
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NWE5OWI1YTMyZDY1MGExNDllYWEwYSIsInVzZXJuYW1lIjoidWR5bmFtbyIsImlhdCI6MTc2NzYyOTA1NSwiZXhwIjoxNzY3NjMwODU1fQ.BGidDPhg99eCAefc79_yWFPB7gpMHRg4FBoB83DRukI
+
+### Refresh Token
+POST http://localhost:3000/user-auth/token 
+Content-Type: application/json
+
+{
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NWE5OWI1YTMyZDY1MGExNDllYWEwYSIsImlhdCI6MTc2NzU0NzI5MiwiZXhwIjoxNzY3NTQ3NDEyfQ.gqbjqlDBU-Cd6VYccAszbQIMWpqNkrpfVoK8LuAKafY"
+}
+
+### LogOut 
+DELETE http://localhost:3000/user-auth/logout 
+Content-Type: application/json
+
+{
+    "token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5NWE5OWI1YTMyZDY1MGExNDllYWEwYSIsImlhdCI6MTc2NzU0NzA5MCwiZXhwIjoxNzY4MTUxODkwfQ.lA8Nz57i1mwVNV_bWMDjES2GCjQlXmTN_fxq9CmO2so"
+}
+
+###Get Stops
+GET http://localhost:3000/get-stops
+
+###route stops
+GET http://localhost:3000/route 
