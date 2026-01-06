@@ -20,7 +20,7 @@ function Register() {
             return;
         }
         const user = { username: e.username, name: e.name, email: e.email, password: e.password };
-        const url = "http://localhost:3000/user-auth/create-user/";
+        const url = `${import.meta.env.VITE_API_URL}/user-auth/create-user/`;
         try {
             const response = await axios.post(url, user, {
                 headers: { "Content-Type": "application/json" },
