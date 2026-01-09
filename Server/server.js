@@ -7,7 +7,11 @@ const calculateRoute = require("./services/routeService");
 const cors = require('cors');
 const app = express();
 require("dotenv").config();
-app.use(cors());
+app.use(cors({
+  origin: "https://route-optimization-system-one.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 app.use(express.json());
 
 const port = process.env.PORT || 4000;
