@@ -115,11 +115,11 @@ app.use((err, req, res, next) => {
 
 // DB CONNECTION & SERVER START
 mongoose.connect(process.env.DBURL)
-.then(() => {
-    console.log("Connected to MongoDB");
-    app.listen(3000, () => console.log("Server running on port 3000"));
-})
-.catch(err => console.error(err));
+  .then(() => console.log("MongoDB Connected"))
+  .catch(err => {
+    console.error("MongoDB connection error:", err.message);
+    process.exit(1);
+  });
 
 const Userapi = require("./APIs/userAPIs");
 app.use("/user-auth", Userapi);
