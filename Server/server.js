@@ -7,7 +7,7 @@ const calculateRoute = require("./services/routeService");
 const cors = require('cors');
 const app = express();
 require("dotenv").config();
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: "https://route-optimization-backend-ehca.onrender.com" }));
 app.use(express.json());
 
 const port = process.env.PORT || 4000;
