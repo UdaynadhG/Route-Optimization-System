@@ -4,8 +4,6 @@ const expressasynchandler = require('express-async-handler')
 const bcrypt = require('bcryptjs')
 const jwt = require("jsonwebtoken")
 const user = require('../models/userModel')
-const cors = require('cors')
-app.use(cors({ origin: "http://localhost:5173" }));
 
 // Create User
 app.post('/create-user', expressasynchandler(async(req, res) => {
