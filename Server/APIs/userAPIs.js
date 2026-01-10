@@ -13,7 +13,23 @@ app.post('/create-user', expressasynchandler(async(req, res) => {
     newUser.password = hashpw; 
     const doc = new user(newUser); 
     await doc.save(); 
-    res.send({message: "user created"});
+    const CurrUser = await user.findOne({
+        $or: [{ username: newUser.username }, { email: newUser.username }]
+    });
+    const accessToken = jwt.sign(
+        { id: CurrUser._id, username: CurrUser.username },
+        process.env.ACCESS_SECRET_TOKEN,
+        { expiresIn: "30m" }
+    );
+
+    const refreshToken = jwt.sign(
+        { id: CurrUser._id },
+        process.env.REFRESH_SECRET_TOKEN,
+        { expiresIn: "7d" }
+    );
+    CurrUser.refreshTokenArr.push(refreshToken);
+    await CurrUser.save();
+    res.json({message: "user created", accessToken: accessToken, refreshToken: refreshToken});
 }))
 
 // Login User
